@@ -50,6 +50,28 @@ const getRequestHeader = (api) => {
 
 }
 
+const getRequestBody = (api) => {
+
+  if(!api.request.body)
+    return "";
+
+  if(api.request.body.mode == "raw")
+    return api.request.body.raw;
+
+  if(api.request.body.mode == "formdata" || api.request.body.mode  == "urlencoded"){
+
+    let mode = api.request.body.mode
+    let body = []
+    api.request.body[mode].forEach( (obj) => {
+      body.push(obj.key+":"+obj.value);
+    })
+    return body.join("\n");
+  }
+
+  return ""
+
+}
+
 const exportToXlsx = (inputFilePath,outputFilePath='output.xlsx') => {
   let collection = readJSON(inputFilePath);
 
@@ -60,7 +82,7 @@ const exportToXlsx = (inputFilePath,outputFilePath='output.xlsx') => {
     lineItem.host = getHost(apiData);
     lineItem.endPoint = getEndPoint(apiData);
     lineItem.request_params = getRequestParameters(apiData);
-    //lineItem.request_body = getRequestBody(apiData);
+    lineItem.request_body = getRequestBody(apiData);
     lineItem.request_headers = getRequestHeader(apiData);
 
     data.push(lineItem);
