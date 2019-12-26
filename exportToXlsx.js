@@ -37,6 +37,19 @@ const getRequestParameters = (api) => {
   return params.join("\n");
 }
 
+const getRequestHeader = (api) => {
+
+  if(!api.request.header)
+    return "";
+
+  let headers = []
+  api.request.header.forEach( (obj) => {
+    headers.push(obj.key+":"+obj.value);
+  })
+  return headers.join("\n");
+
+}
+
 const exportToXlsx = (inputFilePath,outputFilePath='output.xlsx') => {
   let collection = readJSON(inputFilePath);
 
@@ -48,7 +61,7 @@ const exportToXlsx = (inputFilePath,outputFilePath='output.xlsx') => {
     lineItem.endPoint = getEndPoint(apiData);
     lineItem.request_params = getRequestParameters(apiData);
     //lineItem.request_body = getRequestBody(apiData);
-    //lineItem.request_headers = getRequestHeader(apiData);
+    lineItem.request_headers = getRequestHeader(apiData);
 
     data.push(lineItem);
   })
