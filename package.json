@@ -1,0 +1,22 @@
+{
+  "name": "postmantoexcel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exportToXlsx.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sagar-D/postmanToCsv.git"
+  },
+  "author": "Sagar D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sagar-D/postmanToCsv/issues"
+  },
+  "homepage": "https://github.com/Sagar-D/postmanToCsv#readme",
+  "dependencies": {
+    "json2xls": "^0.1.2"
+  }
+}
