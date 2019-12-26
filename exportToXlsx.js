@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const json2xls = require('json2xls');
 
 const readJSON = (filePath) => {
   let rawData = fs.readFileSync(filePath);
@@ -36,8 +37,8 @@ const getRequestParameters = (api) => {
   return params.join("\n");
 }
 
-const exportToXlsx = (filePath) => {
-  let collection = readJSON(filePath);
+const exportToXlsx = (inputFilePath,outputFilePath='output.xlsx') => {
+  let collection = readJSON(inputFilePath);
 
   let data = [];
 
@@ -53,7 +54,13 @@ const exportToXlsx = (filePath) => {
   })
 
   console.log(data)
+  writeToXlsx(outputFilePath,data);
 
+}
+
+const writeToXlsx = (filePath,data) => {
+  var xlsxData = json2xls(data);
+  fs.writeFileSync(filePath, xlsxData, 'binary');
 }
 
 exportToXlsx('/Users/user/Downloads/test.json')
