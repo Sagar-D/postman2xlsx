@@ -8,9 +8,52 @@ const readJSON = (filePath) => {
   return jsonData;
 }
 
-const exportToXlsx = (filePath) => {
-  let collection = readJSON(filePath);
-  console.log(collection);
+const getHost = (api) => {
+
+  if(!api.request.url.host)
+    return "";
+
+  return api.request.url.host.join('.');
 }
 
-exportToExcel('/Users/user/Downloads/test.json')
+const getEndPoint = (api) => {
+
+  if(!api.request.url.path)
+    return "";
+
+  return api.request.url.path.join('/');
+}
+
+const getRequestParameters = (api) => {
+
+  if(!api.request.url.query)
+    return "";
+
+  let params = []
+  api.request.url.query.forEach( (obj) => {
+    params.push(obj.key+":"+obj.value);
+  })
+  return params.join("\n");
+}
+
+const exportToXlsx = (filePath) => {
+  let collection = readJSON(filePath);
+
+  let data = [];
+
+  collection.item.forEach((apiData) => {
+    let lineItem = {}
+    lineItem.host = getHost(apiData);
+    lineItem.endPoint = getEndPoint(apiData);
+    lineItem.request_params = getRequestParameters(apiData);
+    //lineItem.request_body = getRequestBody(apiData);
+    //lineItem.request_headers = getRequestHeader(apiData);
+
+    data.push(lineItem);
+  })
+
+  console.log(data)
+
+}
+
+exportToXlsx('/Users/user/Downloads/test.json')
