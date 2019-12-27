@@ -1,6 +1,6 @@
 {
   "name": "postman2xlsx",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Export api requests data from postman collection to xlsx file",
   "main": "exportToXlsx.js",
   "keywords": [
