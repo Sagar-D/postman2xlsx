@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Export api requests data from postman collection to xlsx file",
   "main": "exportToXlsx.js",
+  "keywords": [
+        "postman",
+        "xlsx",
+        "postman to excel",
+        "export from postman"
+    ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postmanToXlsx": "node -e 'require(\"./exportToXlsx\").exportToXlsx(process.argv[1])'"
