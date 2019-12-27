@@ -1,8 +1,8 @@
 # postmanToXlsx
 Export Request details from postman collection json to xlsx file.
 
-## Steps to Export Collections from Postman
-[Learn to Export Collections from Postman](https://learning.getpostman.com/docs/postman/collections/data-formats/#exporting-postman-data)
+## Install using npm
+`npm install postman2xlsx`
 
 ## Command Line Execution
 ``` npm run postmanToXlsx '<path to postman-api-collection.json>' ```
@@ -24,4 +24,8 @@ let outputFilePath = '<path>/myOutputFile.xlsx';
 p2xl.exportToXlsx(postmanCollectionPath, outputFilePath);
 
 ```
+
+--------------------------------------------------------------------------------------------------------------------------
+## Steps to Export Collections from Postman
+[Learn to Export Collections from Postman](https://learning.getpostman.com/docs/postman/collections/data-formats/#exporting-postman-data)
 
