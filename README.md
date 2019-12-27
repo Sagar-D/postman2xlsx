@@ -1,4 +1,4 @@
-# postmanToXlsx
+# PostmanToXlsx
 Export Request details from postman collection json to xlsx file.
 
 ## Install using npm
