@@ -1,7 +1,7 @@
 {
-  "name": "postmantoexcel",
+  "name": "postman2xlsx",
   "version": "1.0.0",
-  "description": "",
+  "description": "Export api requests data from postman collection to xlsx file",
   "main": "exportToXlsx.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sagar-D/postmanToCsv.git"
+    "url": "git+https://github.com/Sagar-D/postmanToXlsx.git"
   },
   "author": "Sagar D",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sagar-D/postmanToCsv/issues"
+    "url": "https://github.com/Sagar-D/postmanToXlsx/issues"
   },
-  "homepage": "https://github.com/Sagar-D/postmanToCsv#readme",
+  "homepage": "https://github.com/Sagar-D/postmanToXlsx#readme",
   "dependencies": {
     "json2xls": "^0.1.2"
   }
