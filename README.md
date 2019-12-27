@@ -14,7 +14,7 @@ Export Request details from postman collection json to xlsx file.
 
 const p2xl = require('postman2xlsx');
 
-let postmanCollectionPath = 'path to postman-api-collection.json'
+let postmanCollectionPath = 'path to postman-api-collection.json';
 
 // Output file will be written in the same folder as that of input file with fileName as postmanToXslxOutput.xlsx
 p2xl.exportToXlsx(postmanCollectionPath);
