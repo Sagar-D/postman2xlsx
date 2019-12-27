@@ -72,7 +72,11 @@ const getRequestBody = (api) => {
 
 }
 
-const exportToXlsx = (inputFilePath,outputFilePath='output.xlsx') => {
+const exportToXlsx = (inputFilePath,outputFilePath) => {
+
+  if(outputFilePath==undefined)
+    outputFilePath = inputFilePath.substring(0,inputFilePath.lastIndexOf('/')+1) + 'postmanToXslxOutput.xlsx';
+
   let collection = readJSON(inputFilePath);
 
   let data = [];
@@ -88,9 +92,8 @@ const exportToXlsx = (inputFilePath,outputFilePath='output.xlsx') => {
     data.push(lineItem);
   })
 
-  console.log(data)
   writeToXlsx(outputFilePath,data);
-
+  console.log('Exported Collection from '+inputFilePath+" to Excel located at "+outputFilePath);
 }
 
 const writeToXlsx = (filePath,data) => {
@@ -98,4 +101,4 @@ const writeToXlsx = (filePath,data) => {
   fs.writeFileSync(filePath, xlsxData, 'binary');
 }
 
-exportToXlsx('/Users/user/Downloads/test.json')
+module.exports.exportToXlsx = exportToXlsx;
