@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Sagar-D/postmanToXlsx.git"
+    "url": "git+https://github.com/Sagar-D/postman2xlsx.git"
   },
   "author": "Sagar D",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Sagar-D/postmanToXlsx/issues"
+    "url": "https://github.com/Sagar-D/postman2xlsx/issues"
   },
-  "homepage": "https://github.com/Sagar-D/postmanToXlsx#readme",
+  "homepage": "https://github.com/Sagar-D/postman2xlsx#readme",
   "dependencies": {
     "json2xls": "^0.1.2"
   }
