@@ -79,21 +79,34 @@ const exportToXlsx = (inputFilePath,outputFilePath) => {
 
   let collection = readJSON(inputFilePath);
 
-  let data = [];
-
-  collection.item.forEach((apiData) => {
-    let lineItem = {}
-    lineItem.host = getHost(apiData);
-    lineItem.endPoint = getEndPoint(apiData);
-    lineItem.request_params = getRequestParameters(apiData);
-    lineItem.request_body = getRequestBody(apiData);
-    lineItem.request_headers = getRequestHeader(apiData);
-
-    data.push(lineItem);
-  })
+  let data = fetchData(collection.item);
 
   writeToXlsx(outputFilePath,data);
-  console.log('Exported Collection from '+inputFilePath+" to Excel located at "+outputFilePath);
+  console.log('ExpoexportToXlsx.jsrted Collection from '+inputFilePath+" to Excel located at "+outputFilePath);
+}
+
+const fetchData = (itemArray) => {
+
+  let data = []
+
+  itemArray.forEach((obj) => {
+    if(obj.item){
+      let childData = fetchData(obj.item);
+      data = data.concat(childData);
+    }
+    else {
+      let lineItem = {}
+      lineItem.host = getHost(obj);
+      lineItem.endPoint = getEndPoint(obj);
+      lineItem.request_params = getRequestParameters(obj);
+      lineItem.request_body = getRequestBody(obj);
+      lineItem.request_headers = getRequestHeader(obj);
+      data.push(lineItem);
+    }
+  })
+
+  return data;
+
 }
 
 const writeToXlsx = (filePath,data) => {
