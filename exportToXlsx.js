@@ -85,17 +85,19 @@ const exportToXlsx = (inputFilePath,outputFilePath) => {
   console.log('ExpoexportToXlsx.jsrted Collection from '+inputFilePath+" to Excel located at "+outputFilePath);
 }
 
-const fetchData = (itemArray) => {
+const fetchData = (itemArray, section="/") => {
 
   let data = []
 
   itemArray.forEach((obj) => {
     if(obj.item){
-      let childData = fetchData(obj.item);
+      let childData = fetchData(obj.item, section+obj.name+"/");
       data = data.concat(childData);
     }
     else {
       let lineItem = {}
+      lineItem.section = section;
+      lineItem.name = obj.name;
       lineItem.host = getHost(obj);
       lineItem.endPoint = getEndPoint(obj);
       lineItem.request_params = getRequestParameters(obj);
