@@ -5,6 +5,11 @@ Export Request details from postman collection json to xlsx file.
 `npm install postman2xlsx`
 
 ## Command Line Execution
+
+Note : To execute script from command line, user should install the package globally. i.e
+`npm install -g postman2xlsx`
+
+Run below command to execute the script
 ``` postman2xlsx '<path to postman-api-collection.json>' ```
 
 ## Import As Module In Node.js
