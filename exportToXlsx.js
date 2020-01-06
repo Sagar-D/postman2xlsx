@@ -82,7 +82,7 @@ const exportToXlsx = (inputFilePath,outputFilePath) => {
   let data = fetchData(collection.item);
 
   writeToXlsx(outputFilePath,data);
-  console.log('ExpoexportToXlsx.jsrted Collection from '+inputFilePath+" to Excel located at "+outputFilePath);
+  console.log('Exported Collection from '+inputFilePath+" to Excel located at "+outputFilePath);
 }
 
 const fetchData = (itemArray, section="/") => {
